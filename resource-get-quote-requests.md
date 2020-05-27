@@ -33,9 +33,8 @@ Some attributes accept a value which is from a fixed list of values:
 | coverage_type | Interior & Exterior (HO‌-3), Interior Only (HO‌-6), Unsure |
 
 
-###### Required Fields
-The required attributes are as follows.
-
+###### Fields
+The field attributes are as follows.
 
 | Attribute | Data Type |
 | --------- | --------- |
@@ -43,16 +42,36 @@ The required attributes are as follows.
 | last_name | required/string/max:255 |
 | phone | required/string/max:9 |
 | email | required/string/email format |
+
 | birth_date | nullable/string, date format |
-| spouse_birth_date | nullable/string, date format |
+
+| cosigner_first_name | nullable/string/max:255 |
+| cosigner_last_name | nullable/string/max:255 |
 | cosigner_birth_date | nullable/string, date format |
-| terms | string `Y` |
-| coverage | string (from list) |
+
+| spouse_first_name | nullable/string/max:255 |
+| spouse_last_name | nullable/string/max:255 |
+| spouse_birth_date | nullable/string, date format |
+
+| notes | nullable/string |
+| closing_date | nullable/date format |
+
+| current_insurance_price | nullable/string |
+| current_insurer | nullable/string |
+
+| estimated_loan_amount | nullable/string |
+| loan_number | nullable/string |
+| mortgagee_clause | nullable/string |
+
+| terms | boolean |
+| homeowner_claims | boolean |
+| subscription | boolean |
+
+| coverage | string (from ['Standard', 'Premium']) |
 | marital_status | nullable/string (from ['Married', 'Single','Widowed','Divorced','Engaged','Separated']) |
+| gender | nullable/string (from ['Male','Female']) |
 | address | object |
 | homes | array of objects |
-| subscription | boolean |
-| gender | nullable/string (from ['Male','Female']) |
 
 
 
