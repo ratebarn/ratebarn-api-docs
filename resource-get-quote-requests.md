@@ -7,7 +7,7 @@ GET /api/v1/quote_requests
 
 ## Pagination 
 
-Use the field *paginate* to toggle pagination off or on. Use paginate="true" to enable or paginate="false" to disable
+Use the field *paginate* to toggle pagination off or on. Use paginate="true" to enable or paginate="false" to disable pagination.
 
 ###### Example
 
