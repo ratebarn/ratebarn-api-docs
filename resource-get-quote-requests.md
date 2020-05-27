@@ -29,6 +29,7 @@ Some attributes accept a value which is from a fixed list of values:
 | ownership | Single Family, Condo/Townhouse |
 | property_classification | Primary Residence, Vacation Home, Investment Property |
 | subscription | true,false |
+| homeowner_claims | true,false |
 | terms | true,false |
 | coverage_type | Interior & Exterior (HO‌-3), Interior Only (HO‌-6), Unsure |
 
@@ -50,7 +51,7 @@ The field attributes are as follows.
 | spouse_last_name | nullable/string/max:255 |
 | spouse_birth_date | nullable/string, date format |
 | notes | nullable/string |
-| closing_date | nullable/date format |
+| closing_date | nullable/string, date format |
 | current_insurance_price | nullable/string |
 | current_insurer | nullable/string |
 | estimated_loan_amount | nullable/string |
