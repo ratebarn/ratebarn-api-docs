@@ -5,6 +5,10 @@ GET /api/v1/quote_requests
 
 *Returns all connected quote request models*
 
+## Pagination 
+
+Use the field *paginate* to toggle pagination off or on. Use paginate="true" to enable or paginate="false" to disable
+
 ###### Example
 
 ```bash
