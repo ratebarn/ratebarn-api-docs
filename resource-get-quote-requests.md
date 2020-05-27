@@ -23,10 +23,18 @@ curl -X GET \
 
 ```javascript
 {
-  "data": [],
+  "data": [
+    {
+      //QUOTE REQUEDST OBJECT 1..
+    },
+    {
+      //QUOTE REQUEDST OBJECT 2..
+    }
+    //etc...
+  ],
   "links": {
     "first": "http:\/\/homestead.test\/api\/v1\/quote_requests?page=1",
-    "last": "http:\/\/homestead.test\/api\/v1\/quote_requests?page=169",
+    "last": "http:\/\/homestead.test\/api\/v1\/quote_requests?page=2",
     "prev": null,
     "next": "http:\/\/homestead.test\/api\/v1\/quote_requests?page=2"
   },
