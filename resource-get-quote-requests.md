@@ -1,4 +1,4 @@
-#### Get Quote Request s
+#### Get Quote Requests
 ```
 GET /api/v1/quote_requests
 ```
