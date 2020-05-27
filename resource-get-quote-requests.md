@@ -3,6 +3,8 @@
 POST /api/v1/quote_requests
 ```
 
+*Stores new quote request model, returns saved model*
+
 ###### Parameters
 The paramters are all passed in the body as a json object. The exact format of this data is best found in the example below. 
 
@@ -37,17 +39,22 @@ The required attributes are as follows.
 
 | Attribute | Data Type |
 | --------- | --------- |
-| first_name | string |
-| last_name | string |
-| phone_number | string |
-| primary_birthday | string, date format |
+| first_name | required/string/max:255 |
+| last_name | required/string/max:255 |
+| phone | required/string/max:9 |
+| email | required/string/email format |
+
+| birth_date | nullable/string, date format |
+| spouse_birth_date | nullable/string, date format |
+| cosigner_birth_date | nullable/string, date format |
+
 | terms | string `Y` |
-| email | string, email format |
+
 | coverage | string (from list) |
-| marital_status | string (from list) |
+| marital_status | nullable/string (from ['Married', 'Single','Widowed','Divorced','Engaged','Separated']) |
 | address_attributes | object |
 | subscription | string `Y` |
-| gender | string (from list) |
+| gender | nullable/string (from ['Male','Female']) |
 
 
 ###### Partner Email Attribute
