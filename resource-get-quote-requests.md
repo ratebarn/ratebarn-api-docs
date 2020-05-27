@@ -69,7 +69,7 @@ curl -X POST \
           "last_name": "Doez",
           "gender": "Male",
           "phone": "2221113333",
-          "primary_birthday": "1974-01-22",
+          "birth_date": "1974-01-22",
           "email": "support@gosavvy.io",
           "coverage": "Standard",
           "marital_status": "Married",
@@ -91,36 +91,36 @@ curl -X POST \
                 "city": "Detroit",
                 "state": "MI",
                 "zip_code": "48089"
-              },
+              }
           }],
           "drivers": [{
               "first_name": "John",
               "last_name": "Doez",
               "birth_date": "2016-01-05",
-              "license_no": "0002214444",
+              "license_no": "0002214444"
           },{
               "first_name": "Joan",
               "last_name": "Doez",
               "birth_date": "2000-01-05",
-              "license_no": "0001114444",
+              "license_no": "0001114444"
           }],
           "spouse_first_name": "Arlo",
           "spouse_last_name": "Balistreri",
-          "spouse_birthday": "1956-05-22", 
+          "spouse_birth_date": "1956-05-22",
           "mortgagee_clause": "Placeat totam ratione.",
           "cosigner": true,
           "cosigner_first_name": "Noe",
           "cosigner_last_name": "Dietrich",
-          "cosigner_birthday": "2001-05-14",
+          "cosigner_birth_date": "2001-05-14",
           "loan_number": "96169211",
           "current_insurer": "Acuity",
           "current_insurance_price": 1574,
           "closing_date": "2019-12-25",
           "estimated_loan_amount": 901528,
-          "homeowner_claims": false,         
+          "homeowner_claims": false,
           "subscription": true,
-          "terms": true,        
-          "notes": "Iure deleniti cupiditate.",          
+          "terms": true,
+          "notes": "Iure deleniti cupiditate."
         }'
 ```
 
