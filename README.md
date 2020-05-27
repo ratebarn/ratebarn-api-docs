@@ -2,8 +2,8 @@
 
 API Documentation
 
-- *List quote requests* [get-quote-request](https://github.com/ratebarn/ratebarn-api-docs/blob/master/resource-get-quote-request.md)
-- *Show quote request* [get-quote-requests](https://github.com/ratebarn/ratebarn-api-docs/blob/master/resource-get-quote-requests.md)
+- *Show quote request* [get-quote-request](https://github.com/ratebarn/ratebarn-api-docs/blob/master/resource-get-quote-request.md)
+- *List quote requests* [get-quote-requests](https://github.com/ratebarn/ratebarn-api-docs/blob/master/resource-get-quote-requests.md)
 - *Create quote request* [post-quote-requests](https://github.com/ratebarn/ratebarn-api-docs/blob/master/resource-post-quote-requests.md)
 
 ## Manage Access Tokens
