@@ -12,7 +12,7 @@ Some attributes are expected in a specific format:
 
 | Attribute | Format |
 | --- | --- |
-| Phone Numbers | 9999999999 |
+| Phone Numbers | 999999999 |
 | Dates | YYYY-MM-DD |
 | State | two-character abbreviation |
 | Currencies | integer value only |
@@ -24,12 +24,12 @@ Some attributes accept a value which is from a fixed list of values:
 | --------- | ----- |
 | gender | Male, Female |
 | coverage | Standard, Premium |
-| marital_status | - Married, Single, Divorced, Widowed, Engaged, Married but Separated |
+| marital_status | Married, Single, Divorced, Widowed, Engaged, Married but Separated |
 | home_type | New Home, Refinancing, Shopping Around |
 | ownership | Single Family, Condo/Townhouse |
 | property_classification | Primary Residence, Vacation Home, Investment Property |
-| subscription | Y |
-| terms | Y |
+| subscription | true,false |
+| terms | true,false |
 | coverage_type | Interior & Exterior (HO‌-3), Interior Only (HO‌-6), Unsure |
 
 
@@ -43,22 +43,17 @@ The required attributes are as follows.
 | last_name | required/string/max:255 |
 | phone | required/string/max:9 |
 | email | required/string/email format |
-
 | birth_date | nullable/string, date format |
 | spouse_birth_date | nullable/string, date format |
 | cosigner_birth_date | nullable/string, date format |
-
 | terms | string `Y` |
-
 | coverage | string (from list) |
 | marital_status | nullable/string (from ['Married', 'Single','Widowed','Divorced','Engaged','Separated']) |
-| address_attributes | object |
-| subscription | string `Y` |
+| address | object |
+| homes | array of objects |
+| subscription | boolean |
 | gender | nullable/string (from ['Male','Female']) |
 
-
-###### Partner Email Attribute
-Because most automated requests will be sent using an automation/service partner account, the submitting partner may provide a separate email address as part of the request in the `partner_email` attribute of the `quote_request`. This email will be included in partner emails realated to the submitted quote request.
 
 
 ###### Example
@@ -67,27 +62,51 @@ Because most automated requests will be sent using an automation/service partner
 curl -X POST \
   https://www.ratebarn.com/api/v1/quote_requests \
   -H 'Content-Type: application/json' \
-  -H 'X-Partner-Email: you@yourcompany.com' \
-  -H 'X-Partner-Token: your_api_key' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {**YOUR-ACCESS-TOKEN**}' \
   -d '{
-        "quote_request": {
-          "first_name": "August",
-          "last_name": "Hane",
+          "first_name": "John",
+          "last_name": "Doez",
           "gender": "Male",
-          "phone_number": "2125551214",
-          "primary_birthday": "1974-05-21",
-          "email": "Flo_Stracke53@yahoo.com",
+          "phone": "2221113333",
+          "primary_birthday": "1974-01-22",
+          "email": "support@gosavvy.io",
           "coverage": "Standard",
           "marital_status": "Married",
-          "address_attributes": {
-            "street_address": "111 Anyplace Ave",
-            "city": "Anyplace",
-            "state": "IL",
-            "zip_code": "66666"
+          "address": {
+            "address_line_1": "111 Anyplace Ave",
+            "address_line_2": "Apartment #22",
+            "city": "Detroit",
+            "state": "MI",
+            "zip_code": "48089"
           },
-          "spouse_name": "Arlo",
+          "homes": [{
+              "home_type": "New Home",
+              "ownership": "Single Family",
+              "coverage_type": "Interior & Exterior (HO‌-3)",
+              "property_classification": "Primary Residence",
+              "address": {
+                "address_line_1": "111 Anyplace Ave",
+                "address_line_2": "Apartment #22",
+                "city": "Detroit",
+                "state": "MI",
+                "zip_code": "48089"
+              },
+          }],
+          "drivers": [{
+              "first_name": "John",
+              "last_name": "Doez",
+              "birth_date": "2016-01-05",
+              "license_no": "0002214444",
+          },{
+              "first_name": "Joan",
+              "last_name": "Doez",
+              "birth_date": "2000-01-05",
+              "license_no": "0001114444",
+          }],
+          "spouse_first_name": "Arlo",
           "spouse_last_name": "Balistreri",
-          "spouse_birthday": "1956-05-22",
+          "spouse_birthday": "1956-05-22", 
           "mortgagee_clause": "Placeat totam ratione.",
           "cosigner": true,
           "cosigner_first_name": "Noe",
@@ -97,25 +116,12 @@ curl -X POST \
           "current_insurer": "Acuity",
           "current_insurance_price": 1574,
           "closing_date": "2019-12-25",
-          "notes": "Iure deleniti cupiditate.",
-          "homeowner_claims": false,
           "estimated_loan_amount": 901528,
-          "subscription": "Y",
-          "terms": "Y",
-          "homes_attributes": [{
-              "home_type": "New Home",
-              "ownership": "Single Family",
-              "coverage_type": "Interior & Exterior (HO‌-3)",
-              "property_classification": "Primary Residence",
-              "address_attributes": {
-                "street_address": "48074 Lebsack Spurs",
-                "city": "Ulicesberg",
-                "state": "IL",
-                "zip_code": "60606"
-              }
-          }]
-        }
-      }'
+          "homeowner_claims": false,         
+          "subscription": true,
+          "terms": true,        
+          "notes": "Iure deleniti cupiditate.",          
+        }'
 ```
 
 ###### Response
